@@ -1,6 +1,10 @@
 import { PageTemplate } from "../template/PageTemplate.js";
 
 export class PageHome extends PageTemplate {
+    constructor() {
+        super ();
+        this.pageJS
+    }
     main () {
     const services = ['UX', 'Design', 'Development'];
         let servicesHTML = '';

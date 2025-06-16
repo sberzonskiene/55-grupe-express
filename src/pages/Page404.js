@@ -7,6 +7,7 @@ export class Page404 extends PageTemplate {
     }
 
     main() {
+        console.log(this.req.url);
         return `
             <h1>404</h1>
             <h2>Page not found</h2>

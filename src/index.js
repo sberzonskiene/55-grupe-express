@@ -1,7 +1,7 @@
 import express from 'express';
 import { PageHome } from './pages/PageHome.js';
 import { PageAbout } from './pages/PageAbout.js';
-import { PageServices } from './pages/PagesServices.js';
+import { PageServices } from './pages/PageServices.js';
 import { PageRegister } from './pages/PageRegister.js';
 import { Page404 } from './pages/Page404.js';
 

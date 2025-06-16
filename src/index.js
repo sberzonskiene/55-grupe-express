@@ -13,6 +13,7 @@ app.use(express.static('public'));
 app.get('/', (req, res) => res.send(new PageHome().render()));
 app.get('/about', (req, res) => res.send(new PageAbout().render()));
 app.get('/services', (req, res) => res.send(new PageServices().render()));
+app.get('/services/:service', (req, res) => res.send(new PageServices().render()));
 app.get('/register', (req, res) => res.send(new PageRegister().render()));
 app.get('*error', (req, res) => res.send(new Page404().render()));
 

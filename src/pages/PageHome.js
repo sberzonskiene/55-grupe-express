@@ -1,5 +1,6 @@
 import { hero } from "../components/hero.js";
 import { services } from "../components/services.js";
+/*import { faq } from "../components/faq.js";*/
 import { PageTemplate } from "../template/PageTemplate.js";
 
 export class PageHome extends PageTemplate {

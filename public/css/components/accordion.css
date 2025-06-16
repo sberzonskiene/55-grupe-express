@@ -1,0 +1,50 @@
+.accordion {
+  display: grid;
+  gap: 1rem;
+}
+.accordion .accordion-item {
+  display: grid;
+  background-color: #fff;
+  border-radius: 0;
+  font-size: 1.1rem;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.accordion .accordion-item.expand {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: 0.5rem;
+}
+.accordion .accordion-title {
+  display: grid;
+  grid-template-columns: 1fr 2rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0.5rem 1rem 1rem;
+  text-align: left;
+  font-weight: bold;
+  font-size: inherit;
+  border: none;
+  background-color: inherit;
+  color: inherit;
+}
+.accordion .fa {
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1.4rem;
+  transition: all 0.3s;
+}
+.accordion .accordion-item.expand .fa {
+  rotate: -180deg;
+}
+.accordion .accordion-content {
+  display: none;
+  padding: 0 1rem 1rem;
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+.accordion .accordion-item.expand .accordion-content {
+  display: block;
+}

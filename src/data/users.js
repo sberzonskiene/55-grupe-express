@@ -1,4 +1,4 @@
-import { users } from '../data/users.js';
+import { users } from "../data/users.js";
 
 export function registerAPI(req, res) {
     useSyncExternalStore.push(req.body);

@@ -5,15 +5,16 @@ const passwordDOM = document.getElementById('password');
 formDOM.addEventListener('submit', e => {
     e.preventDefault();
 
-    const username = usernameDOM.value;
-    const password = passwordDOM.value;
-
+    const clientData = { 
+        username: usernameDOM.value,
+        password: passwordDOM.value,
+    }; 
     /*const data = {
         username: username,
         password: password,
-    };  arba galima ir taip rasyti, jei sutampa pavadinimai pavyzdys zemiau*/ 
+    };  arba galima ir taip rasyti, jei sutampa pavadinimai pavyzdys zemiau
 
-    const clientData = { username, password};
+    const clientData = { username, password }; */
 
     // dazniausiai naudojami sie pagrindiniai 5 metodai, parasome, kokio reikia:
     fetch('/api/register', {   //kai klientas issiuncia duomenis

@@ -22,7 +22,9 @@ formDOM.addEventListener('submit', e => {
     //  method: 'PUT',
     //  method: 'DELETE',
         method: 'POST',
-        headers: {},
+        headers: {
+            'Content-Type': 'aplication/json',
+        },
         body: JSON.stringify(clientData),
     })
         .then(res => res.json())  // kai klientas gauna duomenis

@@ -1,0 +1,35 @@
+const formDOM = document.forms[0];
+const usernameDOM = document.getElementById('username');
+const passwordDOM = document.getElementById('password');
+
+formDOM.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const username = usernameDOM.value;
+    const password = passwordDOM.value;
+
+    /*const data = {
+        username: username,
+        password: password,
+    };  arba galima ir taip rasyti, jei sutampa pavadinimai pavyzdys zemiau*/ 
+
+    const clientData = { username, password};
+
+    // dazniausiai naudojami sie pagrindiniai 5 metodai, parasome, kokio reikia:
+    fetch('/api/register', {   //kai klientas issiuncia duomenis
+    //  method: 'GET',
+    //  method: 'PATCH',
+    //  method: 'PUT',
+    //  method: 'DELETE',
+        method: 'POST',
+        headers: {},
+        body: JSON.stringify(clientData),
+    })
+        .then(res => res.json())  // kai klientas gauna duomenis
+        .then(data => {
+            console.log(data);   
+        })
+        .catch(err => {
+            console.log(err);   
+        });
+});   

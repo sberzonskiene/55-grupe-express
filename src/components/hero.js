@@ -1,3 +1,5 @@
+import { stats } from "../data/stats.js";
+
 export function hero() {
     return `
         <section class="container bg-dark hero">
@@ -13,6 +15,9 @@ export function hero() {
                     <div>
                         STARS
                     </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <p style="font-size: 5rem; color: white; text-shadow: red;">Šis puslapis peržiūrėtas: ${stats.visitsCount}</p>
                 </div>
             </div>
         </section>`;

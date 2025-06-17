@@ -4,6 +4,7 @@ export class PageRegister extends PageTemplate {
     constructor(req) {
         super(req);
         this.pageType = 'auth';
+        this.
     }
 
     main() {

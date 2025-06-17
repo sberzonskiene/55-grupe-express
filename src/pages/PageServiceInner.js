@@ -6,6 +6,14 @@ export class PageServiceInner extends PageTemplate {
     }
 
     main() {
+        const data = servicesData.filter(s => s.link === '/' + this.req.params.service);
+        let HTML = '';
+        if (data[0]) {
+            HTML = `<pre>${JSON.stringify(data[0], null, 4)}</pre>`;
+            else {
+                HTML = `<p`
+            }
+        }
         return `
             <section class="container">
                 <div class="row">

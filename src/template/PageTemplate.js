@@ -1,4 +1,5 @@
 import { headerMenuData } from "../data/headerData.js";
+import { stats } from "../data/stats.js";
 
 export class PageTemplate {
     constructor (req) {
@@ -28,7 +29,9 @@ export class PageTemplate {
             <header class="container main-header">
                 <div class="row">
                     <div class="col-12 header-content">
-                        <img class="logo" src="/img/logo.webp" alt="Logo">
+                        <a href="/">
+                            <img class="logo" src="/img/logo.webp" alt="Logo">
+                        </a>    
                         ${this.headerMenu(headerMenuData)}
                         <i class="fa fa-bars hamburger"></i>
                     </div>
@@ -66,7 +69,9 @@ export class PageTemplate {
            <header class="container main-header">
                 <div class="row">
                     <div class="col-12 header-content">
-                        <img class="logo" src="/img/logo.webp" alt="Logo">
+                        <a href="/">
+                            <img class="logo" src="/img/logo.webp" alt="Logo">
+                        </a>    
                         <nav class="main-nav">
                             <a class="link" href="/register">Register</a>
                             <a class="link" href="/login">Login</a>
@@ -142,10 +147,12 @@ export class PageTemplate {
     }
 
     main () {
-        return 'Content...';
+        return 'CONTENT...';
     }
 
     render () {
+        stats.visitsCount++;
+        
         return `
             <!DOCTYPE html>
             <html lang="en">

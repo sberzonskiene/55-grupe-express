@@ -17,7 +17,7 @@ export function hero() {
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
-                    <p style="font-size: 5rem; color: white; text-shadow: red;">Šis puslapis peržiūrėtas: ${stats.visitsCount}</p>
+                    <p style="font-size: 5rem; color: red;">Šis puslapis peržiūrėtas: ${stats.visitsCount}</p>
                 </div>
             </div>
         </section>`;

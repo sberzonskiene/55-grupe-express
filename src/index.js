@@ -6,7 +6,7 @@ import { Page404 } from './pages/Page404.js';
 import { PageServices } from './pages/PageServices.js';
 import { PageServiceInner } from './pages/PageServiceInner.js';
 import { PageServiceDelete } from './pages/PageServiceDelete.js';
-import { PageTeam } from './pages/PageServices.js';
+import { PageTeam } from './pages/PageTeam.js';
 import { registerAPI } from './api/registerAPI.js';
 
 

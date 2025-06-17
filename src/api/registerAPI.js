@@ -5,8 +5,21 @@ export function registerAPI(req, res) {
     if (false) {
         return res.send('Netinkamas username');
     }
-   // 
+
+    // is not valid req.body.password
+    if (false) {
+        return res.send('Netinkamas username');
+    }
+
+    // tikriname ar nera dublikatu 
+    for (const user of users) {
+        if (user.username === req.body.username) {
+            return res.send('Sorry, toks username jau uzimtas :(');
+        }
+    }
     
-    return res.send ('Viskas yra gerai');
+    // "registruojame"
+    users.push(req.body);
+    return res.send ('Tau priskirtas nr:' + users.length);
 
 }

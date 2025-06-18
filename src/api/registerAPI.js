@@ -1,8 +1,36 @@
 import { users } from "../data/users.js";
-import { isValidPassword } from "../lib/isValidPassword.js";
-import { isValidUsername } from "../lib/isValidUsername.js";
+import { IsValid } from "../lib/IsValid.js";
 
 export function registerAPI(req, res) {
+    const [err, msg] = IsValid.fields(req.body, {
+        username: 'username',
+        pass: 'password',
+        userAge: IsValid.age,
+    });
+
+    const [errUser, msgUser] = IsValid.username(req.body.username);
+        if (errUser) {
+            return res.send(msgUser);
+       }
+
+    const [errPass, msgPass] = IsValid.password(req.body.password);
+        if (errPass) {
+            return res.send(msgPass);
+       }   
+}
+    /*
+      if (yra bent viena kklaida) {
+        return klaida
+    }
+    */
+
+
+
+
+
+
+
+
     // is not valid req.body.username
     //const usernameResult = isValidUsername(req.body.username);
     //const valid = usernameResult[0];

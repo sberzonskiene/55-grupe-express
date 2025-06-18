@@ -12,9 +12,9 @@ formDOM.addEventListener('submit', e => {
     /*const data = {
         username: username,
         password: password,
-    };  arba galima ir taip rasyti, jei sutampa pavadinimai pavyzdys zemiau
+    };  arba galima ir taip rasyti, jei objekto raktas sutampa su kintamojo pavadinimu, pavyzdys zemiau
 
-    const clientData = { username, password }; */
+    const data = { username, password }; */
 
     // dazniausiai naudojami sie pagrindiniai 5 metodai, parasome, kokio reikia:
     fetch('/api/register', {   //kai klientas issiuncia duomenis

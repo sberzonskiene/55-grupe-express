@@ -19,7 +19,7 @@ app.use(express.json());
 app.get('/', (req, res) => res.send(new PageHome(req).render()));
 app.get('/about', (req, res) => res.send(new PageAbout(req).render()));
 app.get('/services', (req, res) => res.send(new PageServices(req).render()));
-app.get('/services/:delete', (req, res) => res.send(new PageServiceDelete(req).render()));
+app.get('/services/delete', (req, res) => res.send(new PageServiceDelete(req).render()));
 app.get('/services/:service', (req, res) => res.send(new PageServiceInner(req).render()));
 app.get('/team', (req, res) => res.send(new PageTeam(req).render()));
 app.get('/register', (req, res) => res.send(new PageRegister(req).render()));

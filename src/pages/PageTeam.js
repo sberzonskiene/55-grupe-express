@@ -30,4 +30,5 @@ export class PageTeam extends PageTemplate {
                 </div>
             </section>`;
     }
+    
 }

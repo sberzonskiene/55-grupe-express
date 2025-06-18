@@ -64,7 +64,7 @@ export class IsValid {
     }
 
     if (text.length > maxSize) {
-        return [true, `Password turi tereti ne daugiau ${maxSize} simboliu`];
+        return [true, `Password turi tureti ne daugiau ${maxSize} simboliu`];
     }
 
     return [false, ''];

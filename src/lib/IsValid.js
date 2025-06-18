@@ -7,9 +7,12 @@ export class IsValid {
             const func = IsValid[funcName];
             const value = data[key];
             const [err, msg] = func(value);
-            
-        }
 
+            if (err) {
+                errors[key] = msg;
+            }
+        }
+        return [Object.keys(errors).length > 0, errors];
     }
 
     static username(text) {
@@ -71,11 +74,17 @@ export class IsValid {
         const min = 18;
         const max = 130;
 
-        if (typeof number !== 'number' || !Number.isInteger(number)) {
-            return [true, 'Age turi buti teigiamas skaicius'];
+        if (typeof number !== 'number' || !Number.isInteger(number) || number < 0) {
+            return [true, 'Age turi buti teigiamas sveikas skaicius'];
         }
 
-        if (number > ma) {
-    
-}
+        if (number < min) {
+             return [true, `Age turi tureti ne maziau nei ${min} metu`];
+        }
+
+        if (number > max) {
+             return [true, `Age turi tureti ne daugiau nei ${max} metu`];
+        }
+        return [false, ''];
+        }
     }

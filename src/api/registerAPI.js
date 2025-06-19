@@ -11,7 +11,7 @@ export function registerAPI(req, res) {
         return res.json({
             status: 'error',
             msg: 'msg',
-    });
+        });
     }
 
     // tikriname ar nera dublikatu 
@@ -19,7 +19,9 @@ export function registerAPI(req, res) {
         if (user.username === req.body.username) {
             return res.json({
                 status: 'error',
-                msg: 'Sorry, toks username jau uzimtas :(',
+                msg: {
+                    'Sorry, toks username jau uzimtas :(',
+                },
             });
         }
     }
@@ -27,6 +29,8 @@ export function registerAPI(req, res) {
     // "registruojame"
     users.push(req.body);
     
-    return res.send ('Tau priskirtas nr:' + users.length);
-
+    return res.json({
+        status: 'success',
+        msg: 'Tau priskirtas, nr:' + users.length,
+    });
 }

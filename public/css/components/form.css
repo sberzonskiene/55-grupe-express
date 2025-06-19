@@ -27,5 +27,14 @@
     border-radius: 0.5;
 }
 .info.info-succsess {
-    
+    background-color: #0c0;
+    color: #333;
 }
+.info.info-error {
+    background-color: #f33;
+    color: #333;
+}
+.info.info-show {
+    display: block;
+}
+

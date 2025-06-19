@@ -8,7 +8,8 @@ import { PageServiceInner } from './pages/PageServiceInner.js';
 import { PageServiceDelete } from './pages/PageServiceDelete.js';
 import { PageTeam } from './pages/PageTeam.js';
 import { registerAPI } from './api/registerAPI.js';
-
+import { PageLogin} from './pages/PageLogin.js';
+import { loginAPI } from './api/loginAPI.js';
 
 const app = express();
 const port = 3000;

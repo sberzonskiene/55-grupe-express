@@ -28,7 +28,23 @@ export function loginAPI(req, res) {
                 status: 'error',
                 msg: {
                     password: 'Neteisinga username ir password pora.',
-                }
+                },
             });
         }
-    }
+
+    const randomString = '584hgs5fasd584aef';
+    loginTokens.push({
+        userId: userObj.id,
+        randomString: randomString,
+        createdAt: Date.now(),
+    });
+
+    return res
+        .set({
+            'Set-Cookie': `login-token=${randomString}; domain=localhost; max-age=3600; HttpOnly; path=/; Secure; SameSite=Lax`,
+        })
+        .json({
+            status: 'success',
+            msg: 'Tu buvai sekmingai prijungtas prie sistemos',
+        });
+}

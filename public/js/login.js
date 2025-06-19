@@ -14,7 +14,7 @@ formDOM.addEventListener('submit', e => {
         password: passwordDOM.value,
     }; 
     
-    fetch('/api/register', {  
+    fetch('/api/login', {  
         method: 'POST',
         headers: {
             'Content-Type': 'aplication/json',

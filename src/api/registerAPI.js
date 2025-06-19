@@ -4,29 +4,33 @@ import { IsValid } from "../lib/IsValid.js";
 export function registerAPI(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
         username: 'username',
-        pass: 'password',
-        userAge: 'age',
+        password: 'password',
     });
 
     if (err) {
         return res.json({
             status: 'error',
-            msg: 'msg',
-    });
+            msg: msg,
+        });
     }
 
-    // tikriname ar nera dublikatu 
+    // tikriname, ar nera dublikatu
     for (const user of users) {
         if (user.username === req.body.username) {
             return res.json({
-                
-                'Sorry, toks username jau uzimtas :(');
+                status: 'error',
+                msg: {
+                    username: 'Sorry, toks username jau uzimtas :(',
+                },
+            });
         }
     }
-    
-    // "registruojame"
-    users.push(req.body);
-    
-    return res.send ('Tau priskirtas nr:' + users.length);
 
+    // "registruojame"
+    users.push({ id: users.length + 1, ...req.body });
+
+    return res.json({
+        status: 'success',
+        msg: 'Tau priskirtas, nr:' + users.length,
+    });
 }

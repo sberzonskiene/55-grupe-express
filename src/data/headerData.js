@@ -5,7 +5,7 @@ export const headerMenuData = [
         text: 'About',
         subMenu: [
             { href: '#', text: 'Company' },
-            { href: '#', text: 'Team' },
+            { href: '/team', text: 'Team' },
         ],
     },
     {

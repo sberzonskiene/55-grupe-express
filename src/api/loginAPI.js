@@ -1,4 +1,4 @@
-import { users } from "../data/users.js";
+import { users, loginTokens } from "../data/users.js";
 import { IsValid } from "../lib/IsValid.js";
 
 export function loginAPI(req, res) {
@@ -24,13 +24,13 @@ export function loginAPI(req, res) {
     }
 
     if (!userObj) {
-            return res.json({
-                status: 'error',
-                msg: {
-                    password: 'Neteisinga username ir password pora.',
-                },
-            });
-        }
+        return res.json({
+            status: 'error',
+            msg: {
+                password: 'Neteisinga username ir password pora.',
+            },
+        });
+    }
 
     const randomString = '584hgs5fasd584aef';
     loginTokens.push({

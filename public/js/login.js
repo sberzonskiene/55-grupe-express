@@ -5,33 +5,32 @@ const successDOM = document.getElementById('success_msg');
 const errorUsernameDOM = document.getElementById('error_username');
 const errorPasswordDOM = document.getElementById('error_password');
 
-
 formDOM.addEventListener('submit', e => {
     e.preventDefault();
 
-    const clientData = { 
+    const clientData = {
         username: usernameDOM.value,
         password: passwordDOM.value,
-    }; 
-    
-    fetch('/api/login', {  
+    };
+
+    fetch('/api/login', {
         method: 'POST',
         headers: {
-            'Content-Type': 'aplication/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(clientData),
     })
-        .then(res => res.json()) 
+        .then(res => res.json())
         .then(data => {
             successDOM.classList.remove('info-show');
             errorUsernameDOM.classList.remove('info-show');
             errorPasswordDOM.classList.remove('info-show');
 
             switch (data.status) {
-                case 'succses':
+                case 'success':
                     successDOM.textContent = data.msg;
                     successDOM.classList.add('info-show');
-                    break; 
+                    break;
 
                 case 'error':
                     if (data.msg.username) {
@@ -42,10 +41,10 @@ formDOM.addEventListener('submit', e => {
                         errorPasswordDOM.textContent = data.msg.password;
                         errorPasswordDOM.classList.add('info-show');
                     }
-                    break;        
-            }   
+                    break;
+            }
         })
         .catch(err => {
-            console.log(err);   
+            console.log(err);
         });
-});   
+});

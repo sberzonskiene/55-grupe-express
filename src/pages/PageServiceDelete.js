@@ -6,17 +6,17 @@ export class PageServiceDelete extends PageTemplate {
         super(req);
     }
 
-    main () {
+    main() {
         servicesData.shift();
 
         return `
-        <section class="container">
+            <section class="container">
                 <div class="row">
                     <div class="col-12">
                         <h1>First service has been deleted</h1>
                         <a href="/services">Back to services list</a>
                     </div>
                 </div>
-            </section>`;
+            <section>`;
     }
 }

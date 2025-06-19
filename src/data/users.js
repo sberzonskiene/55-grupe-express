@@ -1,2 +1,2 @@
 export const users = [];
-export const LoginTokens = [];
+export const loginTokens = [];

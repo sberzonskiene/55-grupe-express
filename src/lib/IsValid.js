@@ -2,11 +2,11 @@ export class IsValid {
     static fields(data, schema) {
         const errors = {};
 
-        const requiredKeysCount = Object.keys(schema).length; 
-        const dataKeysCount = Object.keys(data).length; 
+        const requiredKeysCount = Object.keys(schema).length;
+        const dataKeysCount = Object.keys(data).length;
 
         if (dataKeysCount !== requiredKeysCount) {
-            return [true, 'Atejusiuose duomenyse duomenu kiekis nesutampa su reikalaujama apimtimi'];
+            return [true, 'Atejusiuose duomenyse duomenu kiekis nesutampa su reikalaujamu duomenu apimtimi'];
         }
 
         for (const key in schema) {
@@ -19,62 +19,63 @@ export class IsValid {
                 errors[key] = msg;
             }
         }
+
         return [Object.keys(errors).length > 0, errors];
     }
 
     static username(text) {
-    const minSize = 3;
-    const maxSize = 20;
-    const allowedSymbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        const minSize = 3;
+        const maxSize = 20;
+        const allowedSymbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
-    if (typeof text !== 'string') {
-        return [true, 'Username turi buti tekstas'];
-    }
-
-    if (text.length < minSize) {
-        return [true, `Username turi buti ne maziau ${minSize} simboliu`];
-    }
-
-    if (text.length > maxSize) {
-        return [true, `Username turi buti ne daugiau ${maxSize} simboliu`];
-    }
-
-    if (text.includes(' ')) {
-        return [true, 'Username negali tureti tarpu'];
-    }
-
-    const foundIllegalSymbols = [];
-
-    for (const s of text) {
-        if (!allowedSymbols.includes(s) && !foundIllegalSymbols.includes(s)) {
-            foundIllegalSymbols.push(s);
+        if (typeof text !== 'string') {
+            return [true, 'Slapyvardis turi buti tekstas'];
         }
-    }
 
-    if (foundIllegalSymbols.length) {
-        return [true, `Username panaudotas neleistinas simbolis: ${foundIllegalSymbols.join(', ')}`];
-    }
-    
-    return [false, ''];
+        if (text.length < minSize) {
+            return [true, `Slapyvardis turi buti ne maziau ${minSize} simboliu`];
+        }
+
+        if (text.length > maxSize) {
+            return [true, `Slapyvardis turi buti ne daugiau ${maxSize} simboliu`];
+        }
+
+        if (text.includes(' ')) {
+            return [true, 'Slapyvardis negali tureti tarpu'];
+        }
+
+        const foundIllegalSymbols = [];
+
+        for (const s of text) {
+            if (!allowedSymbols.includes(s) && !foundIllegalSymbols.includes(s)) {
+                foundIllegalSymbols.push(s);
+            }
+        }
+
+        if (foundIllegalSymbols.length) {
+            return [true, `Slapyvardyje panaudotas neleistinas simbolis: ${foundIllegalSymbols.join(', ')}`];
+        }
+
+        return [false, ''];
     }
 
     static password(text) {
-    const minSize = 12;
-    const maxSize = 100; 
+        const minSize = 12;
+        const maxSize = 100;
 
-    if (typeof text !== 'string') {
-        return [true, 'Password turi buti tekstas'];
-    }
+        if (typeof text !== 'string') {
+            return [true, 'Slaptazodis turi buti tekstas'];
+        }
 
-    if (text.length < minSize) {
-        return [true, `Password turi tureti ne maziau ${minSize} simboliu`];
-    }
+        if (text.length < minSize) {
+            return [true, `Slaptazodis turi tureti ne maziau ${minSize} simboliu`];
+        }
 
-    if (text.length > maxSize) {
-        return [true, `Password turi tureti ne daugiau ${maxSize} simboliu`];
-    }
+        if (text.length > maxSize) {
+            return [true, `Slaptazodis turi tureti ne daugiau ${maxSize} simboliu`];
+        }
 
-    return [false, ''];
+        return [false, ''];
     }
 
     static age(number) {
@@ -82,16 +83,17 @@ export class IsValid {
         const max = 130;
 
         if (typeof number !== 'number' || !Number.isInteger(number) || number < 0) {
-            return [true, 'Age turi buti teigiamas sveikas skaicius'];
+            return [true, 'Amzius turi buti teigiamas sveikasis skaicius'];
         }
 
         if (number < min) {
-             return [true, `Age turi tureti ne maziau nei ${min} metu`];
+            return [true, `Amzius turi tureti ne mazesnis nei ${min} metu`];
         }
 
         if (number > max) {
-             return [true, `Age turi tureti ne daugiau nei ${max} metu`];
+            return [true, `Amzius turi tureti ne didesnis nei ${max} metu`];
         }
+
         return [false, ''];
-        }
     }
+}

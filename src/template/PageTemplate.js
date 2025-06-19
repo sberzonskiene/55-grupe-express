@@ -2,10 +2,10 @@ import { headerMenuData } from "../data/headerData.js";
 import { stats } from "../data/stats.js";
 
 export class PageTemplate {
-    constructor (req) {
+    constructor(req) {
         this.req = req;
         this.pageType = 'default';
-        this.pageJS= '';
+        this.pageJS = '';
     }
 
     head() {
@@ -25,19 +25,20 @@ export class PageTemplate {
     }
 
     header() {
-        return ` 
+        return `
             <header class="container main-header">
                 <div class="row">
                     <div class="col-12 header-content">
                         <a href="/">
                             <img class="logo" src="/img/logo.webp" alt="Logo">
-                        </a>    
+                        </a>
                         ${this.headerMenu(headerMenuData)}
                         <i class="fa fa-bars hamburger"></i>
                     </div>
                 </div>
             </header>`;
     }
+
 
     headerMenu(data) {
         let HTML = '';
@@ -63,15 +64,14 @@ export class PageTemplate {
         return `<nav class="main-nav">${HTML}</nav>`;
     }
 
-
     headerAuth() {
         return `
-           <header class="container main-header">
+            <header class="container main-header">
                 <div class="row">
                     <div class="col-12 header-content">
                         <a href="/">
                             <img class="logo" src="/img/logo.webp" alt="Logo">
-                        </a>    
+                        </a>
                         <nav class="main-nav">
                             <a class="link" href="/register">Register</a>
                             <a class="link" href="/login">Login</a>
@@ -84,7 +84,7 @@ export class PageTemplate {
 
     footer() {
         return `
-             <footer class="container bg-dark">
+            <footer class="container bg-dark">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-4">
                         <img class="logo" src="/img/logo.webp" alt="Logo">
@@ -120,15 +120,15 @@ export class PageTemplate {
                     </div>
                 </div>
                 <div class="row">
-                    <p class="col-12">&copy; Copyright 2025 - Current. All Right Reserved</p>
+                    <p class="col-12">&copy; Copyright 2024 - Current. All Right Reserved</p>
                 </div>
             </footer>`;
     }
 
     footerAuth() {
         return `
-            <footer>
-               <div class="row">
+            <footer class="container bg-dark">
+                <div class="row">
                     <p class="col-12">Pagaminta Lietuvoje &copy; 2025</p>
                 </div>
             </footer>`;
@@ -146,13 +146,13 @@ export class PageTemplate {
         return `<aside>SONINIS MENU</aside>`;
     }
 
-    main () {
+    main() {
         return 'CONTENT...';
     }
 
-    render () {
+    render() {
         stats.visitsCount++;
-        
+
         return `
             <!DOCTYPE html>
             <html lang="en">

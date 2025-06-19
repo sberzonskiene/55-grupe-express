@@ -32,6 +32,6 @@ export class PageLogin extends PageTemplate {
                         </form>
                     </div>
                 </div>
-            </section>`;
+            <section>`;
     }
 }

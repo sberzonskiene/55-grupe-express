@@ -32,6 +32,6 @@ export class PageRegister extends PageTemplate {
                         </form>
                     </div>
                 </div>
-            </section>`;
+            <section>`;
     }
 }

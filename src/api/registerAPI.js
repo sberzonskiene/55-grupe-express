@@ -31,6 +31,6 @@ export function registerAPI(req, res) {
 
     return res.json({
         status: 'success',
-        msg: 'Tau priskirtas, nr:' + users.length,
+        msg: 'Tu esi, nr:' + users.length,
     });
 }

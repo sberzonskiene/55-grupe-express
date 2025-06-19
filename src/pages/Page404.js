@@ -16,6 +16,6 @@ export class Page404 extends PageTemplate {
                         <a href="/">Back home</a>
                     </div>
                 </div>
-            </section>`;
+            <section>`;
     }
 }

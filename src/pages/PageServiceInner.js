@@ -12,8 +12,8 @@ export class PageServiceInner extends PageTemplate {
 
         if (data[0]) {
             HTML = `<pre>${JSON.stringify(data[0], null, 4)}</pre>`;
-        }   else {
-                HTML = `<p>Norima paslauga neegzistuoja</p>`;
+        } else {
+            HTML = `<p>Norima paslauga neegzistuoja</p>`;
         }
 
         return `
@@ -25,6 +25,6 @@ export class PageServiceInner extends PageTemplate {
                         <a href="/services">Back to services list</a>
                     </div>
                 </div>
-            </section>`;
+            <section>`;
     }
 }

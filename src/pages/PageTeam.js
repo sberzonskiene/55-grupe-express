@@ -28,7 +28,6 @@ export class PageTeam extends PageTemplate {
                         ${HTML}
                     </div>
                 </div>
-            </section>`;
+            <section>`;
     }
-    
 }

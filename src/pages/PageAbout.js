@@ -5,9 +5,10 @@ export class PageAbout extends PageTemplate {
         super(req);
         this.pageJS = 'about';
     }
+
     main() {
         return `
-             <section class="container">
+            <section class="container">
                 <div class="row">
                     <div class="col-12">
                         <h1>About page</h1>
@@ -16,6 +17,6 @@ export class PageAbout extends PageTemplate {
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa culpa animi explicabo quo dignissimos consequuntur voluptates. Autem ipsa eius mollitia fugiat veniam explicabo rerum, pariatur, dolores impedit eum aliquam obcaecati?</p>
                     </div>
                 </div>
-            </section>`;
+            <section>`;
     }
 }

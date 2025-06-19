@@ -8,7 +8,7 @@ import { PageServiceInner } from './pages/PageServiceInner.js';
 import { PageServiceDelete } from './pages/PageServiceDelete.js';
 import { PageTeam } from './pages/PageTeam.js';
 import { registerAPI } from './api/registerAPI.js';
-import { PageLogin} from './pages/PageLogin.js';
+import { PageLogin } from './pages/PageLogin.js';
 import { loginAPI } from './api/loginAPI.js';
 
 const app = express();
@@ -27,12 +27,10 @@ app.get('/register', (req, res) => res.send(new PageRegister(req).render()));
 app.get('/login', (req, res) => res.send(new PageLogin(req).render()));
 
 app.post('/api/register', registerAPI);
-app.post('/api/login', loginAPI)
+app.post('/api/login', loginAPI);
 
 app.get('*error', (req, res) => res.send(new Page404(req).render()));
 
 app.listen(port, () => {
-  console.log(`Server is running on: http://localhost:${port}`);
+    console.log(`Server is running on: http://localhost:${port}`);
 });
-
-

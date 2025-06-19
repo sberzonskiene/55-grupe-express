@@ -18,3 +18,14 @@
     font-size: inherit;
     padding: 0.2em 0.5em;
 }
+
+.info {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    background-color: #ccc;
+    color: #333;
+    border-radius: 0.5;
+}
+.info.info-succsess {
+    
+}

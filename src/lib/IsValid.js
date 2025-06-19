@@ -2,6 +2,13 @@ export class IsValid {
     static fields(data, schema) {
         const errors = {};
 
+        const requiredKeysCount = Object.keys(schema).length; //2
+        const dataKeysCount = Object.keys(data).length; // 4
+
+        if (dataKeysCount !== requiredKeysCount) {
+            return [true, 'Atejusiuose duomenyse duomenu kiekis nesutampa su reikalaujama apimtimi'];
+        }
+
         for (const key in schema) {
             const funcName = schema[key];
             const func = IsValid[funcName];

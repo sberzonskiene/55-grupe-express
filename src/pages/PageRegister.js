@@ -14,10 +14,12 @@ export class PageRegister extends PageTemplate {
                     <div class="col-12">
                         <h1>Register page</h1>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa culpa animi explicabo quo dignissimos consequuntur voluptates. Autem ipsa eius mollitia fugiat veniam explicabo rerum, pariatur, dolores impedit eum aliquam obcaecati?</p>
+                        <div id="succsess_msg" class="infi info-succsess">SUCCSESS</div>
                         <form class="form">
                             <div class="form-row">
                                 <label>Username</label>
                                 <input id="username" type="text" autofocus>
+                                <span>ERROR</span>
                             </div>
                             <div class="form-row">
                                 <label>Password</label>

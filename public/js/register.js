@@ -30,7 +30,15 @@ formDOM.addEventListener('submit', e => {
     })
         .then(res => res.json())  // kai klientas gauna duomenis
         .then(data => {
-            console.log(data);   
+            switch (data.status) {
+                case 'succses':
+                    console.log(data.msg);
+                    break; 
+
+                case 'error':
+                    console.log(data.msg);
+                    break;        
+            }   
         })
         .catch(err => {
             console.log(err);   

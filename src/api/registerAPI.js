@@ -4,18 +4,23 @@ import { IsValid } from "../lib/IsValid.js";
 export function registerAPI(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
         username: 'username',
-        pass: 'password',
-        userAge: 'age',
+        password: 'password',
     });
 
     if (err) {
-        return msg;
+        return res.json({
+            status: 'error',
+            msg: 'msg',
+    });
     }
 
     // tikriname ar nera dublikatu 
     for (const user of users) {
         if (user.username === req.body.username) {
-            return res.send('Sorry, toks username jau uzimtas :(');
+            return res.json({
+                status: 'error',
+                msg: 'Sorry, toks username jau uzimtas :(',
+            });
         }
     }
     

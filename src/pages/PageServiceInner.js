@@ -25,6 +25,6 @@ export class PageServiceInner extends PageTemplate {
                         <a href="/services">Back to services list</a>
                     </div>
                 </div>
-            <section>`;
+            </section>`;
     }
 }

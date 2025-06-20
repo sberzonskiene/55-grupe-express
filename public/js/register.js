@@ -21,14 +21,16 @@ formDOM.addEventListener('submit', e => {
     const data = { username, password }; */
 
     // dazniausiai naudojami sie pagrindiniai 5 metodai, parasome, kokio reikia:
-    fetch('/api/register', {   //kai klientas issiuncia duomenis
+    //fetch('/api/register', {   //kai klientas issiuncia duomenis
     //  method: 'GET',
     //  method: 'PATCH',
     //  method: 'PUT',
     //  method: 'DELETE',
+
+    fetch('/api/register', {
         method: 'POST',
         headers: {
-            'Content-Type': 'aplication/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(clientData),
     })

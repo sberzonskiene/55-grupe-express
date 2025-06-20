@@ -8,7 +8,7 @@ export function registerAPI(req, res) {
     });
 
     if (err) {
-        return res.send({
+        return res.json({
             status: 'error',
             msg: msg,
         });
@@ -17,7 +17,7 @@ export function registerAPI(req, res) {
     // tikriname, ar nera dublikatu
     for (const user of users) {
         if (user.username === req.body.username) {
-            return res.send({
+            return res.json({
                 status: 'error',
                 msg: {
                     username: 'Sorry, toks username jau uzimtas :(',
@@ -29,7 +29,7 @@ export function registerAPI(req, res) {
     // "registruojame"
     users.push({ id: users.length + 1, ...req.body });
 
-    return res.send({
+    return res.json({
         status: 'success',
         msg: 'Tu esi, nr:' + users.length,
     });

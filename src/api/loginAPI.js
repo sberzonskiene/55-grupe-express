@@ -32,7 +32,7 @@ export function loginAPI(req, res) {
         });
     }
 
-    const randomString = '584hgs5fasd584aef';
+    const randomString = ' ';
     loginTokens.push({
         userId: userObj.id,
         randomString: randomString,

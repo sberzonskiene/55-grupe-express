@@ -39,7 +39,7 @@ formDOM.addEventListener('submit', e => {
             errorPasswordDOM.classList.remove('info-show');
 
             switch (data.status) {
-                case 'succses':
+                case 'success':
                     successDOM.textContent = data.msg;
                     successDOM.classList.add('info-show');
                     break; 

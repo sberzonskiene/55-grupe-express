@@ -8,7 +8,7 @@ export class PageDashboard extends PageTemplate {
     main() {
         const isLoggedIn = true;
 
-        if (!isLoggedIn) {
+        if (!this.req.user.isLoggedIn) {
             return `
             <section class="container">
                 <div class="row">

@@ -1,15 +1,13 @@
-export function createString() {
-    const randomString = "0123456789abcdefghijklmnopqrstuvwxtzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const randomLength = 20;
-    let result = '';
-    for ( let i = 0; i < randomLength; i++ ) {
-      const randomNum = Math.floor(Math.random()*randomString.length);
-      result += randomString.charAt(randomNum);
-    }
-    return result;
-}
-// console.log(createRandom(10));
+export function randomString(size=20) {
+    const abc = "0123456789abcdefghijklmnopqrstuvwxtzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let str = '';
 
+    for (let i = 0; i < size; i++) {
+        str += abc[Math.floor(Math.random() * abc.length)];
+    }
+
+    return str;
+}
 
 
 

@@ -1,6 +1,6 @@
 import { users, loginTokens } from "../data/users.js";
 import { IsValid } from "../lib/IsValid.js";
-
+import { randomString } from "../lib/randomString.js";
 
 export function loginAPI(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
@@ -33,15 +33,16 @@ export function loginAPI(req, res) {
         });
     }
 
-    const loginTokensString = randomString();
+    const loginTokenString = randomString();
+
     loginTokens.push({
         userId: userObj.id,
-        randomString: loginTokensString ,
+        randomString: loginTokenString ,
         createdAt: Date.now(),
     });
 
     const cookieParams = [
-        `login-token=${loginTokensString}`,
+        `login-token=${loginTokenString}`,
         'domain=localhost',
         'max-age=3600',
         'HttpOnly',

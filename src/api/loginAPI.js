@@ -1,6 +1,7 @@
 import { users, loginTokens } from "../data/users.js";
 import { IsValid } from "../lib/IsValid.js";
 
+
 export function loginAPI(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
         username: 'username',
@@ -32,17 +33,25 @@ export function loginAPI(req, res) {
         });
     }
 
-    const randomString = ' ';
+    const loginTokensString = randomString();
     loginTokens.push({
         userId: userObj.id,
-        randomString: randomString,
+        randomString: loginTokensString ,
         createdAt: Date.now(),
     });
 
+    const cookieParams = [
+        `login-token=${loginTokensString}`,
+        'domain=localhost',
+        'max-age=3600',
+        'HttpOnly',
+        'path=/',
+        'Secure',
+        'SameSite=Lax',
+    ];
+
     return res
-        .set({
-            'Set-Cookie': `login-token=${randomString}; domain=localhost; max-age=3600; HttpOnly; path=/; Secure; SameSite=Lax`,
-        })
+        .set({ 'Set-Cookie': cookieParams.join('; ')})
         .json({
             status: 'success',
             msg: 'Tu buvai sekmingai prijungtas prie sistemos',

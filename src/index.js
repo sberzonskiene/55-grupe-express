@@ -18,6 +18,11 @@ const port = 3000;
 app.use(express.static('public'));
 app.use(express.json());
 
+app.use((req, res, next) => {
+    console.log(req.url, new Date());
+    next();
+});
+
 // public routes
 app.get('/', (req, res) => res.send(new PageHome(req).render()));
 app.get('/about', (req, res) => res.send(new PageAbout(req).render()));

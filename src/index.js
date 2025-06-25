@@ -23,7 +23,6 @@ app.use(express.json());
 
 app.use(cookieParser);
 app.use(userData);
-    
 
 // public routes
 app.get('/', (req, res) => res.send(new PageHome(req).render()));
@@ -38,7 +37,7 @@ app.get('/login', (req, res) => res.send(new PageLogin(req).render()));
 // private routes
 app.get('/dashboard', (req, res) => res.send(new PageDashboard(req).render()));
 
-//api routes / kai vyksta mainai tarp kliento ir serverio
+// api routes
 app.post('/api/register', registerAPI);
 app.post('/api/login', loginAPI);
 

@@ -18,7 +18,7 @@ export const commonHeaderMenuData = [
             { href: '#', text: 'Management' },
         ],
     },
-];     
+];
 
 export const publicHeaderMenuData = [
     ...commonHeaderMenuData,

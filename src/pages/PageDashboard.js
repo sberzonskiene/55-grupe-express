@@ -8,17 +8,17 @@ export class PageDashboard extends PageTemplate {
     main() {
         if (!this.req.user.isLoggedIn) {
             return `
-            <section class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h1>Unauthorized access</h1>
-                        <p>Turinys yrs pasiekiamas TIK prisijungusiems vartotojams!</p>
-                        <a href="/login">Prisijungti</a>
-                        <p>arba</p>
-                        <a href="/register">Susikurti paskyra</a>
+                <section class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1>Unauthorized access</h1>
+                            <p>Turinys yra pasiekiamas TIK prisijungusiems vartotojams!</p>
+                            <a href="/login">Prisijungti</a>
+                            <p>arba</p>
+                            <a href="/register">Susikurti paskyra</a>
+                        </div>
                     </div>
-                </div>
-            <section>`;
+                <section>`;
         }
 
         return `

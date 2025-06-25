@@ -1,31 +1,12 @@
+import { loginTokens, users } from "../data/users.js";
+
 export function userData(req, res, next) {
     req.user = {
             username: '',
             isLoggedIn: false,
         };
     
-        if (!req.cookie.loginToken || req.cookies.loginToken.length !==) {
-            console.log('nera cookie header');
-            return next();
-        }
-    
-        const cookieParts = req.headers.cookie.split(';').map(s => s.trim());
-        let cookie = '';
-    
-        for (const cookieStr of cookieParts) {
-            if (cookieStr.startsWith('login-token=')) {
-                cookie = cookieStr.slice(12);
-                break;
-            }
-        }
-    
-        if (!cookie) {
-            console.log('nera login-token cookie');
-            return next();
-        }
-    
-        if (cookie.length !== 20) {
-            console.log('login-token nera 20 simboliu');
+        if (!req.cookie.loginToken || req.cookies.loginToken.length !== 20) {
             return next();
         }
     
@@ -48,7 +29,6 @@ export function userData(req, res, next) {
                 req.user.isLoggedIn = true;
                 break;
             }
-
         }
     
         return next();

@@ -1,4 +1,4 @@
-import { headerMenuData } from "../data/headerData.js";
+import { privateHeaderMenuData, publicHeaderMenuData } from "../data/headerData.js";
 import { stats } from "../data/stats.js";
 
 export class PageTemplate {
@@ -25,6 +25,8 @@ export class PageTemplate {
     }
 
     header() {
+        const headerMenuData = this.req.user.isLoggedIn ? privateHeaderMenuData : publicHeaderMenuData;
+
         return `
             <header class="container main-header">
                 <div class="row">

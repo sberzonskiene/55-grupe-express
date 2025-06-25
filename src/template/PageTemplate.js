@@ -122,7 +122,7 @@ export class PageTemplate {
                     </div>
                 </div>
                 <div class="row">
-                    <p class="col-12">&copy; Copyright 2024 - Current. All Right Reserved</p>
+                    <p class="col-12">&copy; Copyright 2025 - Current. All Right Reserved</p>
                 </div>
             </footer>`;
     }

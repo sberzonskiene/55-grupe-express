@@ -11,6 +11,7 @@ import { registerAPI } from './api/registerAPI.js';
 import { PageLogin } from './pages/PageLogin.js';
 import { loginAPI } from './api/loginAPI.js';
 import { PageDashboard } from './pages/PageDashboard.js';
+import { loginTokens } from './data/users.js';
 
 const app = express();
 const port = 3000;
@@ -19,8 +20,57 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.use((req, res, next) => {
-    console.log(req.headers.cookie);
-    next();
+    req.user = {
+        username: '',
+        isLoggedIn: false,
+    };
+
+    if (!req.headers.cookie) {
+        console.log('nera cookie header');
+        return next();
+    }
+
+    const cookieParts = req.headers.cookie.split(';').map(s => s.trim());
+    let cookie = '';
+
+    for (const cookieStr of cookieParts) {
+        if (cookieStr.startsWith('login-token=')) {
+            cookie = cookieStr.slice(12);
+            break;
+        }
+    }
+
+    if (!cookie) {
+        console.log('nera login-token cookie');
+        return next();
+    }
+
+    if (cookie.length !== 20) {
+        console.log('login-token nera 20 simboliu');
+        return next();
+    }
+
+    let user = null;
+
+    for (const cookieTokens of loginTokens) {
+        if (cookieTokens.randomString === cookie) {
+            user = cookieTokens;
+            break;
+        }
+    }
+
+    if (!user) {
+        console.log('pagal cookie nerastas registruotas token');
+        return next();
+    }
+
+    // radom kuriam vartotojui davem sita sausaini!!!
+    // user.userId
+
+    req.user.username = 'Chuck';
+    req.user.isLoggedIn = true;
+
+    return next();
 });
 
 // public routes

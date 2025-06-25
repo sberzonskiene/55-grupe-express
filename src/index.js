@@ -12,12 +12,15 @@ import { PageLogin } from './pages/PageLogin.js';
 import { loginAPI } from './api/loginAPI.js';
 import { PageDashboard } from './pages/PageDashboard.js';
 import { loginTokens } from './data/users.js';
+import { cookieParser } from './middleware/cookieParser.js';
 
 const app = express();
 const port = 3000;
 
 app.use(express.static('public'));
 app.use(express.json());
+
+app.use(cookieParser);
 
 app.use((req, res, next) => {
     req.user = {
